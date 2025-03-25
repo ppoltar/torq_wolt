@@ -7,3 +7,7 @@ class DiscoveryPage:
 
     def go_to_discovery_page(self):
         self.page.goto(WoltLocators.DISCOVERY_URL)
+        self.page.locator(WoltLocators.PRODUCTS_LINE).wait_for(state="visible")
+
+    def click_login_button(self):
+        self.page.click(WoltLocators.LOGIN_BUTTON)
