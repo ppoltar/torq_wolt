@@ -1,7 +1,7 @@
 import pytest
 import logging
 from pages.discovery_page import DiscoveryPage
-from tests.signup.signup_data import signup_test_data
+from tests.sign_up.signup_data import signup_test_data
 from playwright.sync_api import expect
 
 logger = logging.getLogger(__name__)
@@ -19,3 +19,4 @@ def test_signup(page, test_data):
 
     logger.info(f"Checking partner page/popup opened as expected.")
     expect(new_page.locator(test_data["element_to_check"])).to_be_visible()
+    logger.info(f"Finished test: {test_data['case']}.")

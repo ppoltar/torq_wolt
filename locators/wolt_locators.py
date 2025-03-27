@@ -10,3 +10,22 @@ class WoltLocators:
     APPLE = "[aria-label='Apple']"
     FACEBOOK_SIGNUP_BUTTON = "[data-test-id='MethodSelect.Facebook']"
     FACEBOOK = "text='Facebook'"
+    SEARCH_INPUT = "[data-test-id='SearchInput']"
+    ADDRESS_BAR_BUTTON = "[data-test-id='header.address-select-button']"
+    COUNTRY_SELECT = "select[data-test-id='countries-select']"
+    STREET_INPUT = "[data-test-id='address-query-input']"
+    ADDRESS_CONTINUE_BUTTON = "[data-test-id='continue-button']"
+    MAIN_DISCOVERY_CONTENT = "[data-test-id='MainDiscoveryContent']"
+    STREET_SUGGESTIONS_LIST = "[data-test-id='SuggestionsList']"
+    LOGIN_EMAIL_INPUT = "[data-test-id='MethodSelect.EmailInput']"
+    LOGIN_NEXT_BUTTON = "[data-test-id='StepMethodSelect.NextButton']"
+    LOGIN_MAIL_RESEND_BUTTON = "[data-test-id='EmailSent.Resend']"
+    RESTAURANTS_NEAR_ME_TEXT = "[data-test-id='DiscoveryPageTitle']:has-text('Restaurants near me')"
+    STORES_NEAR_ME_TEXT = "[data-test-id='DiscoveryPageTitle']:has-text('Stores and supermarkets near me')"
+    PRODUCTS_LINE_BUTTON = "[data-test-id^='ProductLine.AccordionButton.']"
+    PRODUCT_LINE_CATEGORY =  "[data-test-id='ProductLine.Title']:has-text('{category}')"
+    DISCOVERY_PAGE_TITLE = "[data-test-id='DiscoveryPageTitle']"
+    VENUE_CONTENT_LIST = "[data-test-id='VenueVerticalListGrid']"
+
+
+
