@@ -26,6 +26,28 @@ class WoltLocators:
     PRODUCT_LINE_CATEGORY =  "[data-test-id='ProductLine.Title']:has-text('{category}')"
     DISCOVERY_PAGE_TITLE = "[data-test-id='DiscoveryPageTitle']"
     VENUE_CONTENT_LIST = "[data-test-id='VenueVerticalListGrid']"
+    SORT_FILTER_BUTTON = "[data-test-id='sorting.button.activeSorting']"
+    FILTER_APPLY_BUTTON = "[data-test-id='filterModal.button']"
+    VENUE_CARD = "[data-test-id^='venueCard.']"
+    ITEM_CARD_BUTTON = "[data-test-id='horizontal-item-card-button'], [data-test-id='ItemCard']"
+    PRODUCT_ORDER_SUBMIT = "[data-test-id='product-modal.submit'], [data-test-id='product-modal.submit.add']"
+    PRODUCT_OPTIONS_GROUP = "[data-test-id='product-option-group']"
+    CHECK_OPTION = "label input[type='radio'], label input[type='checkbox']"
+    CARD_VIEW_BUTTON = "[data-test-id='cart-view-button']"
+    CARD_TOTAL_PRICE_BUTTON = "[data-test-id='CartViewTotalPrice']"
+
+    #filters locators
+    SORTED_OPTION_RESTAURANT = "[data-test-id='sortOptions.restaurant.label']"
+    SORTED_OPTION_GROCERY = "[data-test-id='sortOptions.grocery.label']"
+    SORTED_CATEGORIES_AMERICAN = "[data-test-id='categories.american.label']"
+    SORTED_CATEGORIES_ARABIC = "[data-test-id='categories.arabic.label']"
+
+
+
+
+
+
+
 
 
 

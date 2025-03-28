@@ -32,7 +32,7 @@ def cleanup_reports():
     """
     if os.path.exists(REPORTS_DIR):
         logging.info(f"Deleting existing {REPORTS_DIR} directory...")
-        shutil.rmtree(REPORTS_DIR)
+        shutil.rmtree(REPORTS_DIR, ignore_errors=True)
         logging.info(f"{REPORTS_DIR} DELETED directory...")
 
     os.makedirs(REPORTS_DIR, exist_ok=True)
@@ -109,3 +109,10 @@ def pytest_sessionfinish():
 
 
 
+def pytest_configure():
+    """
+    This function is a pytest hook that is called to configure logging settings
+    before the test session starts.
+    It sets up the basic logging configuration with INFO level.
+    """
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
