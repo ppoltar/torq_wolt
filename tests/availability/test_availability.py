@@ -1,10 +1,30 @@
 import pytest
 import logging
+import allure
 from playwright.sync_api import expect
 from pages.discovery_page import DiscoveryPage
 
 logger = logging.getLogger(__name__)
 
+
+@allure.description("""
+    Test Verifies the availability of key elements on the discovery page:
+    - Search input field
+    - Address bar button
+    - Main discovery content area
+
+    The test checks that these elements are visible and enabled.
+
+    Steps:
+    1. Navigate to the discovery page.
+    2. Check visibility and enabled state for each element.
+    3. Log the results.
+    
+    Expected Results:
+    - The search input field should be visible and enabled.
+    - The address bar button should be visible and enabled.
+    - The main discovery content area should be visible on the page.
+""")
 @pytest.mark.availability
 def test_availability(page,):
     logger.info(f"Starting availability test.")

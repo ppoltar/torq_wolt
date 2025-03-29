@@ -8,7 +8,7 @@ from playwright.sync_api import sync_playwright
 logger = logging.getLogger(__name__)
 
 # Define directories
-REPORTS_DIR = "reports"  # Define the reports directory
+REPORTS_DIR = "reports"
 ALLURE_RESULTS_DIR = "reports/allure-results"
 ALLURE_REPORT_DIR = "reports/allure-report"
 VIDEO_DIR = "reports/videos"
@@ -106,7 +106,6 @@ def pytest_sessionfinish():
     if os.path.exists(ALLURE_RESULTS_DIR):
         logging.info("Generating Allure report...")
         subprocess.run(["allure", "generate", ALLURE_RESULTS_DIR, "--clean", "-o", ALLURE_REPORT_DIR])
-
 
 
 def pytest_configure():

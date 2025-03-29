@@ -1,11 +1,26 @@
 import pytest
 import logging
+import allure
 from playwright.sync_api import expect
 from pages.discovery_page import DiscoveryPage
 from tests.login.login_data import login_test_data
 
 logger = logging.getLogger(__name__)
 
+@allure.description("""
+    Test Verifies the login process on the discovery page.
+    The test simulates the login process by entering a mail address and checking the visibility and functionality of the next step in the login process.
+
+    Steps:
+    1. Navigate to the discovery page.
+    2. Click the login button and enter the mail address.
+    3. Click the "Next" button to proceed with the login process.
+    4. Verify that the expected popup element (resent mail login button) is visible and enabled.
+
+    Expected Results:
+    - The "Resend Mail" login button should be visible and enabled after entering the mail and clicking "Next".
+""")
+@pytest.mark.login
 @pytest.mark.parametrize("test_data", login_test_data, ids=[data["case"] for data in login_test_data])
 def test_login(page, test_data):
     logger.info(f"Starting test: {test_data['case']}.")

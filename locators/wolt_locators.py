@@ -33,7 +33,7 @@ class WoltLocators:
     PRODUCT_ORDER_SUBMIT = "[data-test-id='product-modal.submit'], [data-test-id='product-modal.submit.add']"
     PRODUCT_OPTIONS_GROUP = "[data-test-id='product-option-group']"
     CHECK_OPTION = "label input[type='radio'], label input[type='checkbox']"
-    CARD_VIEW_BUTTON = "[data-test-id='cart-view-button']"
+    CARD_VIEW_BUTTON = "[data-test-id='cart-view-button'][data-size='medium']"
     CARD_TOTAL_PRICE_BUTTON = "[data-test-id='CartViewTotalPrice']"
 
     #filters locators
