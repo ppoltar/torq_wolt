@@ -7,7 +7,6 @@ from tests.tabs.tabs_data import tabs_test_data
 
 logger = logging.getLogger(__name__)
 
-
 @allure.description("""
     Test Verifies the functionality of selecting tabs on the discovery page.
     The test runs for each tab specified in the test data and checks if the expected elements are visible after selecting the tab.
@@ -38,5 +37,3 @@ def test_tabs(page, test_data):
     logger.info(f"Checking main page discovery content visible.")
     expect(discovery_page.main_discovery_content()).to_be_visible()
     logger.info(f"Finished test: {test_data['case']}.")
-
-

@@ -1,5 +1,4 @@
 
-
 address_bar_test_data = [
     {
         "case": "Test case Albania country",

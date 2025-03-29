@@ -1,10 +1,10 @@
-# torq_wolt
-Torq Automation Developer Assignment
+# Torq Automation Developer Assignment 
 
+Wolt discovery Web Page.
 
 ## Overview
 
-This repository contains the automation test suite for **Wolt** discovery site using **Playwright** and **pytest** in Python. The tests are designed to verify the UI flow and functionalities of the **Torq Wolt** application. The tests utilize **pytest-xdist** for parallel execution, **pytest-html** for detailed HTML reports, and **Allure** for advanced reports with integrated screenshots and videos for failed tests.
+This repository contains the automation test suite for **Wolt** discovery site using **Playwright** and **pytest** in Python. The tests are designed to verify the UI flow and functionalities of the **Wolt** web application. The tests utilize **pytest-xdist** for parallel execution, **pytest-html** for detailed HTML reports, and **Allure** for advanced reports with integrated screenshots and videos for failed tests.
 
 ## Features
 - **UI Automation**: Verifies all major user flows in the application, including searching, sorting, and adding items to the order.
@@ -80,8 +80,6 @@ The project is organized into different directories and files that follow a logi
 
 The suite covers a range of tests to ensure the robustness and usability of the discovery page.
 
----
-
 ### 1. **Availability Test**
    - **Purpose**: Ensures that key elements are visible and functional on the discovery page.
    - **Steps**: 
@@ -141,14 +139,13 @@ The suite covers a range of tests to ensure the robustness and usability of the 
    - **Expected Results**: The discovery page should remain stable, and all core elements should remain functional under high load.
    - **Use Case**: Verifies the system's stability and resilience under heavy usage.
 
----
-
 ## Reports and Logs
 
-Report and Logs created automatically after every run in run directory in folder reports/
+Report and Logs created automatically in run directory in folder with prefix <reports/>
 
 ### 1. Allure report
-Allure files created automatically in reports/allure-results, Allure report generated automatically in reports/allure-report include index.html file.
+Allure files created automatically in reports/allure-results, 
+Allure report generated automatically in reports/allure-report include index.html file.
 
 You can generate the report by yourself with command:
 ```bash
@@ -169,12 +166,11 @@ Playwright captures trace files of each test execution. Trace files contain deta
 
 These trace files are saved in the reports/playwright-traces/ directory. If you encounter a failure, you can inspect the trace file for more detailed insights.
 
-Viewing Trace Files
-Once the trace file is generated, you can view it using the Playwright Trace Viewer. 
+Viewing trace file is generated, you can view it using the Playwright Trace Viewer. 
 
 You can run the following command to open the trace viewer:
 ```bash
-playwright show-trace reports/playwright-traces/{test_name}-trace.zip```
+playwright show-trace reports/playwright-traces/{test_name}-trace.zip
 ```
 
 

@@ -4,7 +4,6 @@ from locators.wolt_locators import WoltLocators
 
 logger = logging.getLogger(__name__)
 
-
 class DiscoveryPage:
     def __init__(self, page: Page):
         self.page = page

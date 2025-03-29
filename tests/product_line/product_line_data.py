@@ -1,5 +1,4 @@
 
-
 product_line_test_data = [
         {
             "case": "Restaurant product line tab",

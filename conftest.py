@@ -9,11 +9,11 @@ logger = logging.getLogger(__name__)
 
 # Define directories
 REPORTS_DIR = "reports"
-ALLURE_RESULTS_DIR = "reports/allure-results"
-ALLURE_REPORT_DIR = "reports/allure-report"
-VIDEO_DIR = "reports/videos"
-SCREENSHOT_DIR = "reports/screenshots"
-TRACE_DIR = "reports/playwright-traces"
+ALLURE_RESULTS_DIR = f"{REPORTS_DIR}/allure-results"
+ALLURE_REPORT_DIR = f"{REPORTS_DIR}/allure-report"
+VIDEO_DIR = f"{REPORTS_DIR}/videos"
+SCREENSHOT_DIR = f"{REPORTS_DIR}/screenshots"
+TRACE_DIR = f"{REPORTS_DIR}/playwright-traces"
 
 @pytest.fixture(scope="session", autouse=True)
 def cleanup_reports():
@@ -43,7 +43,6 @@ def cleanup_reports():
     logger.info(
         f"Directories {REPORTS_DIR}, {ALLURE_RESULTS_DIR}, {ALLURE_REPORT_DIR}, {VIDEO_DIR}, and {SCREENSHOT_DIR} are ready.")
 
-
 @pytest.fixture(scope="function")
 def page(request):
     """
@@ -61,14 +60,13 @@ def page(request):
      - page (playwright.page.Page): The Playwright page object that the test can interact with.
      """
     test_name = request.node.name
-    video_path = f"{VIDEO_DIR}/{test_name}.webm"
     screenshot_path = f"{SCREENSHOT_DIR}/{test_name}.png"
     trace_path = f"{TRACE_DIR}/{test_name}-trace.zip"
 
     with sync_playwright() as p:
         logger.info("Launching browser...")
         browser = p.chromium.launch(headless=False)
-        context = browser.new_context(record_video_dir=VIDEO_DIR)
+        context = browser.new_context(record_video_dir=f'{VIDEO_DIR}/{test_name}')
         context.tracing.start(screenshots=True, snapshots=True)
         page = context.new_page()
 
@@ -82,20 +80,20 @@ def page(request):
                                name=f"falling_screenshot_{test_name}",
                                attachment_type=allure.attachment_type.PNG)
 
-            logger.info(f"Test {test_name} failed. Attaching video: {video_path}")
-            video_files = [f for f in os.listdir(VIDEO_DIR) if f.endswith(".webm")]
-            temp_video_path = os.path.join(VIDEO_DIR, video_files[-1])
-            shutil.move(temp_video_path, video_path)
-            allure.attach.file(video_path,
-                               name=f"falling_video_{test_name}",
-                               attachment_type=allure.attachment_type.WEBM)
+            logger.info(f"Test {test_name} failed. Attaching video from path: {VIDEO_DIR}/{test_name}/")
+            video_files = [f for f in os.listdir(f'{VIDEO_DIR}/{test_name}/') if f.endswith(".webm")]
+            if video_files:
+                for video in video_files:
+                    video_file_path = os.path.join(VIDEO_DIR, test_name, video)  # Full path to the video file
+                    allure.attach.file(video_file_path,
+                                name=f"falling_video_{test_name}",
+                                attachment_type=allure.attachment_type.WEBM)
         else:
             logger.info(f"Test {test_name} passed! God Job!")
 
         logger.info(f"Test: {test_name} completed. Saving trace...")
         context.tracing.stop(path=trace_path)
         browser.close()
-
 
 def pytest_sessionfinish():
     """
@@ -106,7 +104,6 @@ def pytest_sessionfinish():
     if os.path.exists(ALLURE_RESULTS_DIR):
         logging.info("Generating Allure report...")
         subprocess.run(["allure", "generate", ALLURE_RESULTS_DIR, "--clean", "-o", ALLURE_REPORT_DIR])
-
 
 def pytest_configure():
     """

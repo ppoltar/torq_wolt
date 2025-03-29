@@ -1,6 +1,5 @@
 from locators.wolt_locators import WoltLocators
 
-
 tabs_test_data = [
     {
         "case": "Discovery Tab",

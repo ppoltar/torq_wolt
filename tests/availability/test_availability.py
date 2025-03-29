@@ -6,7 +6,6 @@ from pages.discovery_page import DiscoveryPage
 
 logger = logging.getLogger(__name__)
 
-
 @allure.description("""
     Test Verifies the availability of key elements on the discovery page:
     - Search input field

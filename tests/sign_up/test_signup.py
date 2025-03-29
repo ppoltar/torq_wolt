@@ -7,7 +7,6 @@ from playwright.sync_api import expect
 
 logger = logging.getLogger(__name__)
 
-
 @allure.description("""
     Test Verifies the sign-up process by navigating to the Wolt discovery page and interacting with the sign-up button.
     The test runs for each set of sign-up data provided in the test data.

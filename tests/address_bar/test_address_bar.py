@@ -7,7 +7,6 @@ from tests.address_bar.address_bar_data import address_bar_test_data
 
 logger = logging.getLogger(__name__)
 
-
 @allure.description("""
     Test Verifies the functionality of the address bar for different country and street selections.
     The test runs for each combination of country and street provided in the test data.
