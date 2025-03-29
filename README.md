@@ -36,6 +36,11 @@ pip install -r requirements.txt
 python -m playwright install
 ```
 
+### 3. Run Tests
+```bash
+pytest -v
+```
+
 ## Test Structure
 
 The project is organized into different directories and files that follow a logical structure for ease of navigation and maintenance. Below is the description of each directory and file.
